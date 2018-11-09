@@ -15,7 +15,7 @@ datarequest.onload = function () {
     //populate raw data
     document.getElementById("data").innerHTML = str;
     //assign globals
-    nasa.data = data.nasa;
+    nasa.data = data;
 }
 
 // Send request
