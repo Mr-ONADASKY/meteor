@@ -5,7 +5,7 @@ var settingrequest = new XMLHttpRequest();
 settingrequest.open('GET', '/settings', true);
 settingrequest.onload = function () {
     settings = JSON.parse(this.response);
-    
+
     var datarequest = new XMLHttpRequest();
     datarequest.open('GET', '/data', true);
     datarequest.onload = function () {
@@ -35,17 +35,24 @@ settingrequest.send();
 
 
 //start sketch
-var s = function( sketch ) {
-  
-    sketch.setup = function() {
+var s = function (sketch) {
+
+    sketch.setup = function () {
         const w = document.getElementById(settings.vizid).offsetWidth;
         sketch.createCanvas(w, w);
+
     };
-  
-    sketch.draw = function() {
-      sketch.background(settings.secondarycolor);
-      sketch.fill(settings.primarycolor);
+
+    sketch.draw = function () {
+        sketch.background(settings.secondarycolor);
+        sketch.fill(settings.primarycolor);
+        sketch.stroke(settings.primarycolor);
+        let w = sketch.width;
+        let radius = w/2;
+        for (let index = 0; index < 2 * sketch.PI; index += 0.1) {
+            let x = sketch.cos(index)*radius;
+            let y = sketch.sin(index)*radius;
+            sketch.line(w / 2, w / 2,x + w/2,y+w/2 );
+        }
     };
-  };
-  
-  
+};
