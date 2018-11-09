@@ -43,8 +43,8 @@ var s = function( sketch ) {
     };
   
     sketch.draw = function() {
-      sketch.background(0);
-      sketch.fill(255);
+      sketch.background(settings.secondarycolor);
+      sketch.fill(settings.primarycolor);
     };
   };
   

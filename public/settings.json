@@ -1,4 +1,6 @@
 {
     "dataid":"data",
-    "vizid":"viz"
+    "vizid":"viz",
+    "primarycolor" : "white",
+    "secondarycolor" : "black"
 }
