@@ -13,6 +13,10 @@ app.get('/data', function (req, res) {
     res.send(jsondata);
 });
 
+app.get('/settings', function (req, res) {
+    res.sendFile(path.join(__dirname + '/public/settings.json'));
+});
+
 function init(){
     csv()
         .fromFile("./data/meteor.csv")
