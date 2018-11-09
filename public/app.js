@@ -7,13 +7,13 @@ datarequest.onload = function () {
     var data = JSON.parse(this.response);
     console.log(data);
     
-    // let str = "<ul>";
-    // data.nasa.forEach(element => {
-    //     str += "<li>" + element.name + " -- " + element.mass + "</li>";
-    // });
-    // str += "</ul>";
+    let str = "<ul>";
+    data.nasa.forEach(element => {
+        str += "<li>" + element.name + " -- " + element.mass + "</li>";
+    });
+    str += "</ul>";
     //populate raw data
-    // document.getElementById(settings.rawID).innerHTML = str;
+    document.getElementById("data").innerHTML = str;
     //assign globals
     nasa.data = data.nasa;
 }
