@@ -9,12 +9,15 @@ app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
-let init =()=>{
+app.get('/data', function (req, res) {
+    res.send(jsondata);
+});
+
+function init(){
     csv()
-        .fromFile("./data/meteors.csv")
+        .fromFile("./data/meteor.csv")
         .then((parsed) => {
             jsondata = parsed;
-            
             app.listen(port, () => console.log(`Meteorite app listening on port ${port}!`));
         }, (error)=>{
             console.log(error);
