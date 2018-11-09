@@ -17,6 +17,10 @@ app.get('/settings', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/settings.json'));
 });
 
+app.get('/app', function (req, res) {
+    res.sendFile(path.join(__dirname + '/public/app.js'));
+});
+
 function init(){
     csv()
         .fromFile("./data/meteor.csv")
