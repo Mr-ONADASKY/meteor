@@ -8,7 +8,7 @@ datarequest.onload = function () {
     console.log(data);
     
     let str = "<ul>";
-    data.nasa.forEach(element => {
+    data.forEach(element => {
         str += "<li>" + element.name + " -- " + element.mass + "</li>";
     });
     str += "</ul>";
