@@ -40,6 +40,7 @@ var s = function (sketch) {
     sketch.setup = function () {
         const w = document.getElementById(settings.vizid).offsetWidth;
         sketch.createCanvas(w, w);
+        console.log(nasa);
 
     };
 
@@ -48,11 +49,17 @@ var s = function (sketch) {
         sketch.fill(settings.primarycolor);
         sketch.stroke(settings.primarycolor);
         let w = sketch.width;
-        let radius = w/2;
-        for (let index = 0; index < 2 * sketch.PI; index += 0.1) {
-            let x = sketch.cos(index)*radius;
-            let y = sketch.sin(index)*radius;
+        
+        for (let index = 0; index < nasa.data.length; index ++) {
+            let rad = sketch.map(index, 0, nasa.data.length, 0, 2*Math.PI);
+            //rad = index/nasa.data.length*2*Math.pi
+            let val = nasa.data[index].mass;
+            let radius = val*0.001;
+            let x = sketch.cos(rad)*radius;
+            let y = sketch.sin(rad)*radius;
             sketch.line(w / 2, w / 2,x + w/2,y+w/2 );
         }
+
+
     };
 };
